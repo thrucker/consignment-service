@@ -18,6 +18,7 @@ func (s *handler) CreateConsignment(ctx context.Context, req *pb.Consignment, re
 		Capacity:  int32(len(req.Containers)),
 	})
 	if err != nil {
+		log.Println("no vessel found")
 		return err
 	}
 	log.Printf("Found vessel: %s\n", vesselResponse.Vessel.Name)
@@ -41,4 +42,3 @@ func (s *handler) GetConsignments(ctx context.Context, req *pb.GetRequest, res *
 	res.Consignments = consignments
 	return nil
 }
-

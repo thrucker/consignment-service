@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	pb "github.com/thrucker/consignment-service/proto/consignment"
+	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
@@ -21,7 +22,7 @@ func (repo *MongoRepository) Create(consignment *pb.Consignment) error {
 }
 
 func (repo *MongoRepository) GetAll() ([]*pb.Consignment, error) {
-	cur, err := repo.collection.Find(context.Background(), nil, nil)
+	cur, err := repo.collection.Find(context.Background(), bson.D{})
 
 	if err != nil {
 		return nil, err
