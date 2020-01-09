@@ -7,10 +7,9 @@ COPY go.sum ./go.sum
 
 RUN go mod download
 
-COPY main.go ./main.go
-COPY proto/consignment/consignment.pb.go ./proto/consignment/consignment.pb.go
+COPY . .
 
-RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o shippy-service-consignment
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o shippy-service-consignment main.go datastore.go handler.go repository.go
 
 FROM alpine:latest
 

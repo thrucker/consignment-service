@@ -10,7 +10,7 @@ proto: proto/consignment/consignment.pb.go
 proto/consignment/consignment.pb.go: proto/consignment/consignment.proto
 	protoc -I. --go_out=plugins=micro:. proto/consignment/consignment.proto
 
-.build/.docker-container.stamp: Dockerfile main.go proto/consignment/consignment.pb.go go.mod go.sum
+.build/.docker-container.stamp: Dockerfile main.go proto/consignment/consignment.pb.go go.mod go.sum datastore.go handler.go repository.go
 	docker build -t shippy-service-consignment .
 	mkdir -p $(dir $@)
 	touch $@
