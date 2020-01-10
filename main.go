@@ -8,9 +8,12 @@ import (
 	"github.com/micro/go-micro/client"
 	"github.com/micro/go-micro/metadata"
 	"github.com/micro/go-micro/server"
+	"github.com/thrucker/consignment-service/id"
 	pb "github.com/thrucker/consignment-service/proto/consignment"
+	userServiceId "github.com/thrucker/user-service/id"
 	userService "github.com/thrucker/user-service/proto/user"
-	"github.com/thrucker/vessel-service/proto/vessel"
+	vesselServiceId "github.com/thrucker/vessel-service/id"
+	vesselService "github.com/thrucker/vessel-service/proto/vessel"
 	"log"
 	"os"
 )
@@ -21,6 +24,8 @@ const (
 )
 
 func AuthWrapper(fn server.HandlerFunc) server.HandlerFunc {
+	authClient := userService.NewUserServiceClient(userServiceId.UserServiceId, client.DefaultClient)
+
 	return func(ctx context.Context, req server.Request, resp interface{}) error {
 		meta, ok := metadata.FromContext(ctx)
 		if !ok {
@@ -30,7 +35,6 @@ func AuthWrapper(fn server.HandlerFunc) server.HandlerFunc {
 		token := meta["Token"]
 		log.Println("Authenticating with token: ", token)
 
-		authClient := userService.NewUserServiceClient("go.micro.srv.user", client.DefaultClient)
 		_, err := authClient.ValidateToken(context.Background(), &userService.Token{Token: token})
 		if err != nil {
 			return err
@@ -43,7 +47,7 @@ func AuthWrapper(fn server.HandlerFunc) server.HandlerFunc {
 
 func main() {
 	srv := micro.NewService(
-		micro.Name("shippy.service.consignment"),
+		micro.Name(id.ConsignmentServiceId),
 		micro.Version("latest"),
 		micro.WrapHandler(AuthWrapper),
 	)
@@ -64,7 +68,7 @@ func main() {
 	consignmentCollection := client.Database("shippy").Collection("consignments")
 
 	repository := &MongoRepository{consignmentCollection}
-	vesselClient := vessel.NewVesselServiceClient("shippy.service.vessel", srv.Client())
+	vesselClient := vesselService.NewVesselServiceClient(vesselServiceId.VesselServiceId, srv.Client())
 	h := &handler{repository, vesselClient}
 
 	pb.RegisterShippingServiceHandler(srv.Server(), h)

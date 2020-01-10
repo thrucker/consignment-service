@@ -392,10 +392,10 @@ github.com/stretchr/testify v1.4.0 h1:2E4SXV/wtOkTonXsotYi4li6zVWxYlZuYNCXe9XRJy
 github.com/stretchr/testify v1.4.0/go.mod h1:j7eGeouHqKxXV5pUuKE4zz7dFj8WfuZ+81PSLYec5m4=
 github.com/syndtr/gocapability v0.0.0-20170704070218-db04d3cc01c8/go.mod h1:hkRG7XYTFWNJGYcbNJQlaLq0fg1yr4J4t/NcTQtrfww=
 github.com/technoweenie/multipartstreamer v1.0.1/go.mod h1:jNVxdtShOxzAsukZwTSw6MDx5eUJoiEBsSvzDU9uzog=
-github.com/thrucker/user-service v0.0.0-20200109145704-8dea055bbec5 h1:egDxBWAw43YxJkAtloVxZ6q5k6YnUvv8m/V7KG0bch8=
-github.com/thrucker/user-service v0.0.0-20200109145704-8dea055bbec5/go.mod h1:YODhMu+Gsa8lq0LqQG9ABv8oj6LRViZKhnet4fJACNM=
-github.com/thrucker/vessel-service v0.0.0-20200109103324-1ba1b39c22f7 h1:L0y2/mS+OjnmHauKNVslK4o1Kzq2S9ktjj2ohsRWh9E=
-github.com/thrucker/vessel-service v0.0.0-20200109103324-1ba1b39c22f7/go.mod h1:BCLE/vZjx0Aa2wHE6gW/jW5D1cAQOq3KDiD+n3VqfBg=
+github.com/thrucker/user-service v0.0.0-20200110090525-0ec6ecd939c6 h1:iJ1RgvC4pEDVPn/0tWnbB0ZUaBLyIqbgS6fqZl9TXd4=
+github.com/thrucker/user-service v0.0.0-20200110090525-0ec6ecd939c6/go.mod h1:S4SeteYKC00wKgcwz1Pwo2fFT5Fg7NjVomazrI+4GWM=
+github.com/thrucker/vessel-service v0.0.0-20200110090759-95125ac0d0ca h1:dnAbXwrvLFUz3AjEo5Ix0OsDkrRVJhfwBvdFzJvf5x0=
+github.com/thrucker/vessel-service v0.0.0-20200110090759-95125ac0d0ca/go.mod h1:fvPE6vvo3eHSKX1tQzJ11wcPZrU5U8H0Hh8Ykyx1wuQ=
 github.com/tidwall/pretty v1.0.0 h1:HsD+QiTn7sK6flMKIvNmpqz1qrpP3Ps6jOKIKMooyg4=
 github.com/tidwall/pretty v1.0.0/go.mod h1:XNkn88O1ChpSDQmQeStsy+sBenx6DDtFZJxhVysOjyk=
 github.com/timewasted/linode v0.0.0-20160829202747-37e84520dcf7/go.mod h1:imsgLplxEC/etjIhdr3dNzV3JeT27LbVu5pYWm0JCBY=
