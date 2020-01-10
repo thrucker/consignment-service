@@ -1,3 +1,4 @@
+//go:generate protoc -I. --go_out=plugins=micro:. proto/consignment/consignment.proto
 package main
 
 import (
